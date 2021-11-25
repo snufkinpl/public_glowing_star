@@ -14,7 +14,10 @@ digits = {
 result = ""
 phone = input("Wprowadź numer telefonu: ")
 for character in phone:
-    result += digits.get(character, "") + " "
+    if character != " ":
+        result += digits.get(character, "") + " "
+    else:
+        continue
 print(result)
 
 
