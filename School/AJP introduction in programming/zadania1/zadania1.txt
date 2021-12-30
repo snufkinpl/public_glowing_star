@@ -1,0 +1,21 @@
+	Zadania do wykonania 
+
+1.	Program sprawdzający, czy liczba podana przez użytkownika mieście się w przedziale od 0 do 100.(warunek złożony if)
+
+2.	Napisz program sprawdzający, czy liczba podana przez użytkownika mieście się w przedziale od -100 do 100 i nie jest równa 50.(warunek złożony If)
+
+3.	Poprosić użytkownika o 2 zmienne. Jeżeli pierwsza zmienna jest większa od drugiej obliczyć sumę liczb i iloczyn liczb, w przeciwnym razie obliczyć różnicę i iloraz liczb, a jeżeli liczby są równe wyświetl komunikat ”liczby są równe”.  Pamiętając o zasadzie nie dzielenia przez zero.
+
+4.	Program, który w zależności od wybranej liczby od 1 do 5 wyświetli wynik: 1 – mnożenia zmiennych, 2 – dzielenia zmiennych, 3 – dodawania zmiennych, 4 – odejmowania zmiennych, 5 – pierwiastek z sumy (sqrt). 
+
+5.	Program, który poprosi użytkownika o podanie dwóch liczb. Program ma za zadanie policzyć sumę wszystkich liczb z przedziału podanego przez użytkownika.(pętla for i warunek if) 
+
+6.	Program wyświetlający osobno liczby parzyste i nieparzyste z przedziału od 0 do 100.
+
+7.	Program, który dla naturalnego n i rzeczywistego x, wczytywanych z klawiatury, oblicza:
+a)	P = 12 ... n; (pętla for; n=n*i)
+b)	W = xx ... x = xn (x do potęgi n).
+
+8.	Program, który poprosi użytkownika o numer albumu. Jeśli numer jest mniejszy od 4000 wyświetli komunikat „Jesteś za długo studentem!”, jeśli jest z przedziału 4001 do 10000 komunikat „Twój czas studiowania dobiega końca”, w przeciwnym razie komunikat – „niewłaściwy numer”.
+
+9.	Program wyświetlający osobno liczby podzielne przez 3 i podzielne  przez 4 z przedziału od 0 do 100.

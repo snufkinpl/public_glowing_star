@@ -1,0 +1,22 @@
+Zadania cz. 2
+
+
+1.	Poprosić użytkownika o podanie liczby. Program wykorzystując pętlę For liczy sumę od 0 do liczby podanej przez użytkownika  i  średnią liczb.
+
+2.	Program wyświetlający osobno liczby parzyste i nieparzyste z przedziału od 0 do 100.
+
+3.	Poprosić użytkownika o podanie liczby. Program powinien liczyć sumę liczb parzystych z przedziału od 0 do podanej liczby.
+
+4.	Napisać program, który zlicza ilość podanych przez użytkownika liczb, ale tylko podzielnych przez 3, do kiedy ilość tych liczb nie przekroczy 20.
+
+5.	Program liczący sumę cyfr podanej przez użytkownika liczby.
+
+6.	Program zamieniający liczbę podaną przez użytkownika na binarną.
+
+7.	Sprawdzenie czy liczba podana przez użytkownika jest pierwsza.
+
+8.	Program wyznaczający największy wspólny dzielnik dwóch liczb wprowadzanych przez użytkownika. 
+
+9.	Sprawdzenie czy tekst wprowadzany przez użytkownika jest palindromem.
+
+
