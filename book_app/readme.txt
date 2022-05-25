@@ -1,0 +1,1 @@
+Aplikacja zaliczeniowa na uczelni AJP w Gorzowie Wlkp.
