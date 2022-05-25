@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+
+<div class="header-bar">
+    <a href="{% url 'books' %}">&#8592; Back</a>
+</div>
+
+<h1>book: {{book}}</h1>
+<h1>author: {{book.author}}</h1>
+
+
+
+{% endblock content %}

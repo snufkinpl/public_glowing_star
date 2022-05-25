@@ -14,7 +14,7 @@ from django.views import View
 from django.shortcuts import redirect
 from django.db import transaction
 
-from .models import Task
+from .models import book
 from .forms import PositionForm
 
 
@@ -24,14 +24,14 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('tasks')
+        return reverse_lazy('books')
 
 
 class RegisterPage(FormView):
     template_name = 'base/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('books')
 
     def form_valid(self, form):
         user = form.save()
@@ -41,22 +41,24 @@ class RegisterPage(FormView):
 
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('tasks')
+            return redirect('books')
         return super(RegisterPage, self).get(*args, **kwargs)
 
 
-class TaskList(LoginRequiredMixin, ListView):
-    model = Task
-    context_object_name = 'tasks'
+class bookList(LoginRequiredMixin, ListView):
+    model = book
+    context_object_name = 'books'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tasks'] = context['tasks'].filter(user=self.request.user)
-        context['count'] = context['tasks'].filter(complete=False).count()
+        context['books'] = context['books'].filter(user=self.request.user)
+        context['count1'] = context['books'].filter(complete=False).count()
+        context['count2'] = context['books'].filter(borrow=True).count()
+        context['count3'] = context['books'].count()
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
-            context['tasks'] = context['tasks'].filter(
+            context['books'] = context['books'].filter(
                 title__contains=search_input)
 
         context['search_input'] = search_input
@@ -64,37 +66,37 @@ class TaskList(LoginRequiredMixin, ListView):
         return context
 
 
-class TaskDetail(LoginRequiredMixin, DetailView):
-    model = Task
-    context_object_name = 'task'
-    template_name = 'base/task.html'
+class bookDetail(LoginRequiredMixin, DetailView):
+    model = book
+    context_object_name = 'book'
+    template_name = 'base/book.html'
 
 
-class TaskCreate(LoginRequiredMixin, CreateView):
-    model = Task
-    fields = ['title', 'description', 'complete']
-    success_url = reverse_lazy('tasks')
+class bookCreate(LoginRequiredMixin, CreateView):
+    model = book
+    fields = ['author', 'title', 'complete', 'borrow']
+    success_url = reverse_lazy('books')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(TaskCreate, self).form_valid(form)
+        return super(bookCreate, self).form_valid(form)
 
 
-class TaskUpdate(LoginRequiredMixin, UpdateView):
-    model = Task
-    fields = ['title', 'description', 'complete']
-    success_url = reverse_lazy('tasks')
+class bookUpdate(LoginRequiredMixin, UpdateView):
+    model = book
+    fields = ['author', 'title', 'complete', 'borrow']
+    success_url = reverse_lazy('books')
 
 
 class DeleteView(LoginRequiredMixin, DeleteView):
-    model = Task
-    context_object_name = 'task'
-    success_url = reverse_lazy('tasks')
+    model = book
+    context_object_name = 'book'
+    success_url = reverse_lazy('books')
     def get_queryset(self):
         owner = self.request.user
         return self.model.objects.filter(user=owner)
 
-class TaskReorder(View):
+class bookReorder(View):
     def post(self, request):
         form = PositionForm(request.POST)
 
@@ -102,6 +104,6 @@ class TaskReorder(View):
             positionList = form.cleaned_data["position"].split(',')
 
             with transaction.atomic():
-                self.request.user.set_task_order(positionList)
+                self.request.user.set_book_order(positionList)
 
-        return redirect(reverse_lazy('tasks'))
+        return redirect(reverse_lazy('books'))
